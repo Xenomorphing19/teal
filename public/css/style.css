@@ -1,0 +1,30 @@
+.form-box {
+    margin-top: 30px;
+    display: flex;
+    flex-basis: 400px;
+    flex-direction: column;
+}
+
+.row {
+ 
+    align-items: center;
+    width: 1000px;
+    margin: 30px;
+    padding: 0px 100px;
+}
+
+.btn-primary {
+
+    margin: 0px 100px;
+    width: 300px;
+    height: 60px;
+}
+.form-box{
+    display: flex;
+    align-: center;
+}
+
+.center-form{
+    display: flex;
+    align-items: center;
+}

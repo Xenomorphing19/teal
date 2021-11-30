@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="add">
+        <label>Select country: </label>
+        <select id="country-input" name="degree">
+            <option value="india">india</option>
+            <option value="pakistan">pakistan</option>
+            <option value="burundi">burundi</option>
+            <option value="cuntry">cuntry</option>
+        </select>
+        <button id="country-next">next</button>
+        <br>
+        <!-- one<input type="text" id="id">
+        <br>
+        two<input type="text" id="country">
+        <br>
+        three<input type="text" id="pid">
+        <br>
+        four<input type="text" id="pname">
+        <br>
+        <button id="show-btn">show courses</button>
+        <br> -->
+      </div>
+  
+    <div id="programs">
+
+    </div>
+  </body>
+  <script>
+      var data = []
+
+      function makeNewRow(name){
+        var newRow = document.createElement("newRow"); 
+        var label = document.createTextNode("Select " + name);
+        var input = document.createElement("input")
+        input.setAttribute("id", name+"-input");
+
+        var btn = document.createElement("button");
+        btn.innerHTML = "next";
+        btn.setAttribute("id", name+"-next");
+
+        newRow.appendChild(label)
+        newRow.appendChild(input)
+        newRow.appendChild(btn)
+        newRow.appendChild(document.createElement("br"))
+
+        return newRow
+      }
+
+      document.getElementById('country-next').addEventListener('click', () => {
+        var nr = makeNewRow("institute")
+        document.getElementById("add").appendChild(nr);
+
+        document.getElementById('institute-next').addEventListener('click', () => {
+            var nr = makeNewRow("degree")
+            document.getElementById("add").appendChild(nr);
+            
+            document.getElementById('degree-next').addEventListener('click', () => {
+                var name = document.createTextNode("name of course: ");
+                var nameInput = document.createElement("input")
+                nameInput.setAttribute("id", "name-input")
+
+                var desc = document.createTextNode("description: ");
+                var descInput = document.createElement("input")
+                descInput.setAttribute("id", "desc-input")
+
+                var credits = document.createTextNode("num of credits: ");
+                var creditsInput = document.createElement("input")
+                creditsInput.setAttribute("id", "credits-input")
+
+                var btn = document.createElement("button");
+                btn.innerHTML = "add course";
+                btn.setAttribute("id", "add-course");
+
+                document.getElementById("add").appendChild(name);
+                document.getElementById("add").appendChild(nameInput);
+                document.getElementById("add").appendChild(document.createElement("br"))                
+                document.getElementById("add").appendChild(desc);
+                document.getElementById("add").appendChild(descInput);
+                document.getElementById("add").appendChild(document.createElement("br"))
+                document.getElementById("add").appendChild(credits);
+                document.getElementById("add").appendChild(creditsInput);
+                document.getElementById("add").appendChild(document.createElement("br"))
+                document.getElementById("add").appendChild(btn);
+                console.log("done");
+
+                document.getElementById("add-course").addEventListener('click', () => {
+                    var newCourse = {
+                        "country": document.getElementById('country-input').value,
+                        "institute": document.getElementById('institute-input').value,
+                        "degree": document.getElementById('degree-input').value,
+                        "name": document.getElementById('name-input').value,
+                        "desc": document.getElementById('desc-input').value,
+                        "credits": document.getElementById('credits-input').value
+                    };
+
+                    console.log(newCourse);
+                })
+            })
+        })
+      })
+    
+      
+
+      
+
+    // document.getElementById("addp").addEventListener('click', () => {
+    //     var node = document.createElement("LI");      
+    //     var pid = document.getElementById("pid").value 
+    //     var textnode = document.createTextNode(pid);
+    //     var input_cid = document.createElement("input");
+    //     input_cid.setAttribute("pid", pid)
+    //     var btn = document.createElement("button");
+    //     // input_cid.set_attribute("pid", pid)
+    //     // data.push({
+    //     //     pid : pid
+    //     // })
+    //     node.appendChild(textnode); 
+    //     node.appendChild(input_cid)  
+    //     node.appendChild(btn)
+    //     document.getElementById("programs").appendChild(node)
+    //     console.log(data)
+    // })
+  </script>
+</html>
