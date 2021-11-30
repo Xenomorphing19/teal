@@ -4,8 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Course = require("./models/course.js");
-const cors = require("cors");
 const engine = require('express-handlebars').engine;
+const create = require('express-handlebars').create;
 
 const app = express();
 
@@ -13,13 +13,20 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
-
-// app.engine('hbs', hbs({extname: 'hbs', defaultLayout: 'layout'}));
-// app.set('view engine', 'hbs')
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cors);
+app.use(express.static('public'));
+
+// const hbs = create({
+//   helpers: {
+//     foo(array){
+//       array.forEach(function(element){
+//         return element;
+//       });
+//     }
+//   }
+
+// })
 
 const port = 5000;
 
@@ -31,11 +38,11 @@ db.once('open', function(){
   console.log("MongoDB Local Server Started!");
 });
 
-// app.get("/", function(req, res){
-//     // res.render("index");
-//     res.send("Chutiya");
-//     console.log("Is this working?");
-// })
+app.get("/", function(req, res){
+
+    res.render("index");
+    console.log("Is this working?");
+})
 
 app.post('/test', function(req, res){
     const courses = Object.values(req.body);
@@ -65,8 +72,42 @@ app.post('/test', function(req, res){
     })
 });
 
+app.get('/courses', function(req, res){
+
+  res.render("courses", {layout: false, title: "Anirudh"})
+
+  var courseNames = [];
+  
+  // Course.find({}, function(courses, err){
+  //   if(err){
+  //     console.log(err);
+  //   } else if (courses) {
+
+  //     var name = courses[0].name;
+  //     console.log(name);
+
+      // res.render("courses", {title: name})
+
+      // courses.forEach(function(course){
+      //   courseNames.push(course.name);
+      // });
+      
+      // res.render("courses", {
+      //   layout: false,
+      //   helpers: {
+      //     foo() { return courseNames; }
+      //   }
+      // })
+
+  //   } else {
+  //     res.send("No courses exist!");
+  //   }
+  // })
+})
+
 app.post('/get-courses', function(req, res){
   console.log("get courses request")
+  // res.render("courses");
   res.send("bruh");
     // courses.find()
     //   .then(cour = res.json(cour))

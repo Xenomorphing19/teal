@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML 5 Boilerplate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">TEAL 2.0 Consortium</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Courses</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="form-box center-form">
+        <div class="row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Country</label>
+          <div class="col-sm-10">
+            <input type="Country" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Country Name">
+          </div>
+        </div>
+        <div class="row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Institute</label>
+          <div class="col-sm-10">
+            <input type="Institute" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Institute Name">
+          </div>
+        </div>
+        <div class="row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Course</label>
+          <div class="col-sm-10">
+            <input type="Course" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Course Name">
+          </div>
+        </div>
+        <div class="row">
+          <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Professor Name</label>
+          <div class="col-sm-10">
+            <input type="Professor" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Your Name Here">
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg">
+          <svg xmlns="https://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-node-plus-fill" viewBox="0 0 16 16">
+            <path d="M11 13a5 5 0 1 0-4.975-5.5H4A1.5 1.5 0 0 0 2.5 6h-1A1.5 1.5 0 0 0 0 7.5v1A1.5 1.5 0 0 0 1.5 10h1A1.5 1.5 0 0 0 4 8.5h2.025A5 5 0 0 0 11 13zm.5-7.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2a.5.5 0 0 1 1 0z"/>
+          </svg>
+          Add Collaborator
+        </button>
+      </div>
+  <script 
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+  <script>
+      fetch('http://localhost:5000/get-courses').then(function (response) {
+        // The API call was successful!
+        console.log('success!', response);
+      }).catch(function (err) {
+        // There was an error
+        console.warn('Something went wrong.', err);
+      });
+  </script>
+  </html>
